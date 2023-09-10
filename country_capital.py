@@ -1,0 +1,133 @@
+#!/usr/bin/env python3
+
+from random import randrange
+
+countries = [["Afghanistan", "Kabul"],
+            ["Albania", "Tirana"],
+            ["Algeria", "Algiers"],
+            ["Angola", "Luanda"],
+            ["Argentina", "Buenos Aires"],
+            ["Armenia", "Yerevan"],
+            ["Australia", "Canberra"],
+            ["Austria", "Vienna"],
+            ["Bahamas", "Nassau"],
+            ["Bahrain", "Manama"],
+            ["Bangladesh", "Dhaka"],
+            ["Bridgetown","Barbados"],
+            ["Belarus","Minsk"],
+            ["Belgium","Brussels"],
+            ["Belize","Belmopan"],
+            ["Benin","Porto Novo"],
+            ["Bhutan","Thimphu"],
+            ["Botswana","Gaborone"],
+            ["Brazil","Brasilia"],
+            ["Bulgaria","Sofia"],
+            ["Burundi","Gitega"],
+            ["Cameroon","Yaounde"],
+            ["Canada","Ottawa"],
+            ["Cape Verde","Praia"],
+            ["Chile","Santiago"],
+            ["China","Beijing"],
+            ["Colombia","Bogota"],
+            ["Comoros","Moroni"],
+            ["Costa Rica","San Jose"],
+            ["Croatia","Zagreb"],
+            ["Cuba","Havana"],
+            ["Cyprus","Nicosia"],
+            ["Czech Republic","Prague"],
+            ["Denmark","Copenhagen"],
+            ["Djibouti","Djibouti"],
+            ["Dominica","Roseau"],
+            ["Dominican Republic","Santo Domingo"],
+            ["East Timor","Dili"],
+            ["Ecuador","Quito"],
+            ["Egypt","Cairo"],
+            ["El Salvador","San Salvador"],
+            ["England","London"],
+            ["Equatorial Guinea","Malabo"],
+            ["Eritrea","Asmara"],
+            ["Estonia","Tallinn"],
+            ["France","Paris"],
+            ["Georgia","Tbilisi"],
+            ["Germany","Berlin"],
+            ["Guatemala","Guatemala City"],
+            ["Honduras","Tegucigalpa"],
+            ["Hungary","Budapest"],
+            ["Iceland","Reykjavik"],
+            ["India","New Delhi"],
+            ["Indonesia","Jakarta"],
+            ["Iran","Tehran"],
+            ["Iraq","Baghdad"],
+            ["Israel","Jerusalem"],
+            ["Italy","Rome"],
+            ["Jamaica","Kingston"],
+            ["Japan","Tokyo"],
+            ["Kazakhstan","Astana"],
+            ["Kiribati","Tarawa Atoll"],
+            ["Kosovo","Pristina"],
+            ["Kuwait","Kuwait City"],
+            ["Kyrgyzstan","Bishkek"],
+            ["Laos","Vientiane"],
+            ["Latvia","Riga"],
+            ["Lebanon","Beirut"],
+            ["Mauritania","Nouakchott"],
+            ["Mauritius","Port Louis"],
+            ["Mexico","Mexico City"],
+            ["Moldova","Chisinau"],
+            ["Monaco","Monaco"],
+            ["Norway","Oslo"],
+            ["Oman","Muscat"],
+            ["Pakistan","Islamabad"],
+            ["Paraguay","Asuncion"],
+            ["Peru","Lima"],
+            ["Philippines","Manila"],
+            ["Poland","Warsaw"],
+            ["Portugal","Lisbon"],
+            ["Qatar","Doha"],
+            ["Russia","Moscow"],
+            ["San Marino","San Marino"],
+            ["Saudi Arabia","Riyadh"],
+            ["Scotland","Edinburgh"],
+            ["Senegal","Dakar"],
+            ["Serbia","Belgrade"],
+            ["Seychelles","Victoria"],
+            ["Sierra Leone","Freetown"],
+            ["Singapore","Singapore"],
+            ["Slovakia","Bratislava"],
+            ["Slovenia","Ljubljana"],
+            ["Somalia","Mogadishu"],
+            ["South Korea","Seoul"],
+            ["South Sudan","Juba"],
+            ["Spain","Madrid"],
+            ["Sweden","Stockholm"],
+            ["Switzerland","Bern"],
+            ["Syria","Damascus"],
+            ["Uganda","Kampala"],
+            ["Ukraine","Kiev"],
+            ["United Arab Emirates","Abu Dhabi"],
+            ["United Kingdom","London"],
+            ["United States","Washington D.C."],
+            ["Uzbekistan","Tashkent"],
+            ["Vatican","Vatican City"],
+            ["Venezuela","Caracas"],
+            ["Zimbabwe","Harare"]]
+tries = 3
+points = 0
+
+while countries != [] and tries > 0:
+    randid = randrange(len(countries))
+    country, capital = [i for i in countries.pop(randid)]
+    guess = input(f"What is the capital of country {country}: ")
+    if guess.lower() == capital.lower():
+        print("Yes!")
+        points += 1
+    else:
+        tries -= 1
+        print(f"No! The capital of {country} is {capital}\nYou have {tries} attempts left")
+        if points == 0:
+            break
+
+if points > 1:
+    print(f"Game over! You have earned {points} points")
+else:
+    print(f"Game over! You have earned {points} point")
